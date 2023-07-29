@@ -10,10 +10,27 @@ namespace Core.Specifications
 {
     public class ProductWithTypesAndBrandsSpecs : BaseSpecification<Product>
     {
-        public ProductWithTypesAndBrandsSpecs()
+        public ProductWithTypesAndBrandsSpecs(string sort)
         {
             AddInclude(x => x.ProductType);
             AddInclude(y => y.ProductBrand);
+            AddOrderBy(x => x.Name);
+
+            if(!string.IsNullOrEmpty(sort))
+            {
+                switch(sort)
+                {
+                    case "priceAsc":
+                        AddOrderBy(p => p.Price);
+                        break;
+                    case "priceDesc":
+                        AddOrderByDescending(p => p.Price);
+                        break;
+                    default:
+                        AddOrderBy(p => p.Name);
+                        break;
+                }
+            }
 ;       }
 
         public ProductWithTypesAndBrandsSpecs(int id) : base(x => x.Id == id)
