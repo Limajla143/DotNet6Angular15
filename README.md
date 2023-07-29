@@ -16,3 +16,10 @@ Update-Database
 # Angular Commands
 ng new clientEcommerce
 
+# Enable HTTPS angular
+install mkcert
+
+# Ngx-bootstrap
+ng add ngx-bootstrap
+
+npm install font-awesome
