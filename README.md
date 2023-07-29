@@ -11,3 +11,8 @@ Drop-Database -p Infrastructure -s API
 Remove-Migration -p Infrastructure -s API
 Add-Migration InitialCreate -p Infrastructure -s API -o Data/Migrations
 Update-Database
+
+
+# Angular Commands
+ng new clientEcommerce
+
