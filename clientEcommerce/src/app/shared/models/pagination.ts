@@ -1,4 +1,4 @@
-export interface Pzagination<T> {
+export interface Pagination<T> {
     pageIndex: number;
     pageSize: number;
     count: number;
