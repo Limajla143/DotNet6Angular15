@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { ShopComponent } from './shop/shop.component';
+import { ProductItemComponent } from './shop/product-item/product-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShopComponent
+    ShopComponent,
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,8 @@ import { ShopComponent } from './shop/shop.component';
     CoreModule
   ],
   exports: [
-    ShopComponent
+    ShopComponent,
+    ProductItemComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
