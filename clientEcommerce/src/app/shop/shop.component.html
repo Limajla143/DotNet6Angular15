@@ -37,6 +37,11 @@
                 <div class="d-flex mt-2">
                     <app-paging-header [totalCount]="totalCount" [pageNumber]="shopParams.pageNumber" [pageSize]="shopParams.pageSize"></app-paging-header>
                 </div>
+                <div class="d-flex mt-2">
+                    <input (keyup.enter)="onSearch()" type="text" placeholder="Search" class="form-control me-2" #search>
+                    <button (click)="onSearch()" class="btn btn-outline-primary mx-2">Search</button>
+                    <button (click)="onReset()" class="btn btn-outline-success">Reset</button>
+                </div>
             </div>
 
             <div class="row row-cols-3 g-3 mb-4">
