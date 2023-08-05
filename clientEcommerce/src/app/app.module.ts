@@ -8,23 +8,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { ShopComponent } from './shop/shop.component';
 import { ProductItemComponent } from './shop/product-item/product-item.component';
+import { ShopModule } from './shop/shop.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShopComponent,
-    ProductItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CoreModule
-  ],
-  exports: [
-    ShopComponent,
-    ProductItemComponent
+    CoreModule,
+    ShopModule
   ],
   providers: [],
   bootstrap: [AppComponent]
