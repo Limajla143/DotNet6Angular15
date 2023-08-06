@@ -27,3 +27,6 @@ npm install font-awesome
 ng g c nav-bar --skip-tests
 ng g c shop/shop --flat --skip-tests
 ng g --help /** FOR MORE COMMANDS **/
+
+# Angular Notifs
+npm install ngx-toastr --save
