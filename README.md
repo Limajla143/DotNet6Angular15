@@ -42,3 +42,6 @@ npm install bootswatch
 
 #loading indicator
 npm install ngx-spinner --save
+
+# Docker
+docker-compose up --detach (RUN REDIS IN DOCKER)
