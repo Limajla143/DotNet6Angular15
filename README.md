@@ -26,6 +26,8 @@ npm install font-awesome
 
 ng g c nav-bar --skip-tests
 ng g c shop/shop --flat --skip-tests
+ng g interceptor core/interceptors/loading --skip-tests
+ng g s core/services/busy --skip-tests
 ng g --help /** FOR MORE COMMANDS **/
 
 # Angular Notifs
@@ -37,3 +39,6 @@ npm install --save xng-breadcrumb
 #Bootsrap Theme
 bootswatch.com
 npm install bootswatch
+
+#loading indicator
+npm install ngx-spinner --save
