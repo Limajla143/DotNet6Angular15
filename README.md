@@ -30,3 +30,10 @@ ng g --help /** FOR MORE COMMANDS **/
 
 # Angular Notifs
 npm install ngx-toastr --save
+
+#Angular xng-BreadCrumb
+npm install --save xng-breadcrumb
+
+#Bootsrap Theme
+bootswatch.com
+npm install bootswatch
