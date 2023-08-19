@@ -12,6 +12,11 @@ Remove-Migration -p Infrastructure -s API
 Add-Migration InitialCreate -p Infrastructure -s API -o Data/Migrations
 Update-Database
 
+#IdentityDb
+Add-Migration IdentityInitial -p Infrastructure -s API -c AppIdentityDbContext -o Identity/Migrations
+Drop-Database -Context AppIdentityDbContext -p Infrastructure -s API
+Remove-Migration -Context AppIdentityDbContext -p Infrastructure -s API
+
 
 # Angular Commands
 ng new clientEcommerce
