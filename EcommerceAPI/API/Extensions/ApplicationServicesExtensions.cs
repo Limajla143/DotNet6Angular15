@@ -15,9 +15,6 @@ namespace API.Extensions
         {
             // Add services to the container.
 
-            services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
-
             services.AddDbContext<StoreDBContext>(x => x.UseSqlServer(config.GetConnectionString("DefaultConnection")));
             services.AddSingleton<IConnectionMultiplexer>(c =>
             {
