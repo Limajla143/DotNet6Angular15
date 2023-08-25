@@ -9,7 +9,7 @@ dotnet dev-certs https --trust
 #Migrations
 Drop-Database -p Infrastructure -s API
 Remove-Migration -p Infrastructure -s API
-Add-Migration InitialCreate -p Infrastructure -s API -o Data/Migrations
+Add-Migration InitialCreate -p Infrastructure -s API -c StoreDBContext -o Data/Migrations
 Update-Database
 
 #IdentityDb
@@ -50,3 +50,6 @@ npm install ngx-spinner --save
 
 # Docker
 docker-compose up --detach (RUN REDIS IN DOCKER)
+
+# ANGULAR GUARD
+ng g g core/guards/auth
