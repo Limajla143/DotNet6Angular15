@@ -59,5 +59,10 @@ ng g g core/guards/auth
 # Stepper steps checkout
 ng add @angular/cdk
 
-#
+# Some Commands to add sample features
+ng g m orders
+ng g m orders/orders-routing --flat
+ng g c orders/orders --flat --skip-tests
+ng g s orders/orders --skip-tests
+ng g c order-detailed --skip-tests
 
