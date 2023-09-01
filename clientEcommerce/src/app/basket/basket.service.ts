@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Basket, BasketItem, BasketTotals } from '../shared/models/basket';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../shared/models/products';
+import { DeliveryMethod } from '../shared/models/deliveryMethod';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class BasketService {
   baseUrl = environment.apiUrl;
   private basketSource = new BehaviorSubject<Basket | null>(null);
   basketSource$ = this.basketSource.asObservable();
+  shipping = 0;
 
   private basketTotalSource = new BehaviorSubject<BasketTotals | null>(null);
   basketTotalSource$ = this.basketTotalSource.asObservable();
@@ -68,6 +70,7 @@ export class BasketService {
         this.basketSource.next(null);
         this.basketTotalSource.next(null);
         localStorage.removeItem('basket_id');
+        this.deleteLocalBasket();
       }
     })
   }
@@ -105,12 +108,23 @@ export class BasketService {
     if (!basket) return;
     const shipping = 0;
     const subtotal = basket.items.reduce((a, b) => (b.price * b.quantity) + a, 0);
-    const total = subtotal + shipping;
-    this.basketTotalSource.next({shipping, total, subtotal});
+    const total = subtotal + this.shipping;
+    this.basketTotalSource.next({shipping: this.shipping, total, subtotal});
   }
 
   private isProduct(item: Product | BasketItem): item is Product {
     return (item as Product).productBrand !== undefined;
+  }
+
+  setShippingPrice(deliveryMethod: DeliveryMethod) {
+    this.shipping = deliveryMethod.price;
+    this.calculateTotals();
+  }
+
+  deleteLocalBasket() {
+    this.basketSource.next(null);
+    this.basketTotalSource.next(null);
+    localStorage.removeItem('basket_id');
   }
   
 }

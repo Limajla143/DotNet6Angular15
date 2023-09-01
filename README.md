@@ -34,6 +34,7 @@ ng g c shop/shop --flat --skip-tests
 ng g interceptor core/interceptors/loading --skip-tests
 ng g s core/services/busy --skip-tests
 ng g --help /** FOR MORE COMMANDS **/
+ng g interceptor core/interceptors/jwt --skip-tests
 
 # Angular Notifs
 npm install ngx-toastr --save
@@ -53,3 +54,10 @@ docker-compose up --detach (RUN REDIS IN DOCKER)
 
 # ANGULAR GUARD
 ng g g core/guards/auth
+
+
+# Stepper steps checkout
+ng add @angular/cdk
+
+#
+
