@@ -66,3 +66,9 @@ ng g c orders/orders --flat --skip-tests
 ng g s orders/orders --skip-tests
 ng g c order-detailed --skip-tests
 
+# Stripe
+npm install @stripe/stripe-js
+
+install stripe cmd then
+-stripe login
+-stripe listen -f https://localhost:7164/api/payments/webhook -e payment_intent.succeeded,payment_intent.payment_failed
