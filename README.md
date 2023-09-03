@@ -21,6 +21,13 @@ Remove-Migration -Context AppIdentityDbContext -p Infrastructure -s API
 # Angular Commands
 ng new clientEcommerce
 
+# Some Commands to add sample features
+ng g m orders
+ng g m orders/orders-routing --flat
+ng g c orders/orders --flat --skip-tests
+ng g s orders/orders --skip-tests
+ng g c order-detailed --skip-tests
+
 # Enable HTTPS angular
 install mkcert
 
@@ -51,6 +58,7 @@ npm install ngx-spinner --save
 
 # Docker
 docker-compose up --detach (RUN REDIS IN DOCKER)
+docker-compose up -d
 
 # ANGULAR GUARD
 ng g g core/guards/auth
@@ -59,16 +67,16 @@ ng g g core/guards/auth
 # Stepper steps checkout
 ng add @angular/cdk
 
-# Some Commands to add sample features
-ng g m orders
-ng g m orders/orders-routing --flat
-ng g c orders/orders --flat --skip-tests
-ng g s orders/orders --skip-tests
-ng g c order-detailed --skip-tests
-
 # Stripe
 npm install @stripe/stripe-js
 
 install stripe cmd then
 -stripe login
 -stripe listen -f https://localhost:7164/api/payments/webhook -e payment_intent.succeeded,payment_intent.payment_failed
+
+# Angular build
+ng build
+
+# Switch to Postgre
+Add-Migration PostgreInitial -p Infrastructure -s API -c StoreDBContext -o Data/Migrations
+Add-Migration PostgreIdentity -p Infrastructure -s API -c AppIdentityDbContext -o Identity/Migrations

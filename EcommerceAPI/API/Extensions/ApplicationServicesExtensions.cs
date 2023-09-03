@@ -15,7 +15,7 @@ namespace API.Extensions
         {
             // Add services to the container.
             services.AddSingleton<IResponseCacheService, ResponseCacheService>();
-            services.AddDbContext<StoreDBContext>(x => x.UseSqlServer(config.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<StoreDBContext>(x => x.UseNpgsql(config.GetConnectionString("DefaultConnection")));
             services.AddSingleton<IConnectionMultiplexer>(c =>
             {
                 var options = ConfigurationOptions.Parse(config.GetConnectionString("Redis"));
