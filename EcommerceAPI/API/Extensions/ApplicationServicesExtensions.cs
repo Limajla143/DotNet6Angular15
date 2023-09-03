@@ -14,7 +14,7 @@ namespace API.Extensions
         public static IServiceCollection AddApplicationservices(this IServiceCollection services, IConfiguration config)
         {
             // Add services to the container.
-
+            services.AddSingleton<IResponseCacheService, ResponseCacheService>();
             services.AddDbContext<StoreDBContext>(x => x.UseSqlServer(config.GetConnectionString("DefaultConnection")));
             services.AddSingleton<IConnectionMultiplexer>(c =>
             {
